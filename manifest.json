@@ -7,5 +7,10 @@
     "browser_action": {
         "default_title": "Highlights mentions of Hitler",
         "default_icon": "icon.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
     }
 }
