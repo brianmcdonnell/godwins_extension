@@ -1,4 +1,5 @@
 function highlightWord(word){
+    var count = 0
     var root = document.body
     textNodesUnder(root).forEach(highlightWords);
 
@@ -10,6 +11,7 @@ function highlightWord(word){
 
     function highlightWords(n){
         for (var i; (i=n.nodeValue.toLowerCase().indexOf(word,i)) > -1; n=after){
+            count++;
             var after = n.splitText(i+word.length);
             var highlighted = n.splitText(i);
             var span = document.createElement('span');
@@ -18,12 +20,14 @@ function highlightWord(word){
             after.parentNode.insertBefore(span,after);
         }
     }
+    return count;
 }
 
 chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
         if (message.command === "highlight"){
-            highlightWord(message.phrase)
+            var count = highlightWord(message.phrase)
+            sendResponse({phraseCount: count});
         }
     }
 );
