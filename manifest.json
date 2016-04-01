@@ -12,5 +12,12 @@
         "scripts": [
             "background.js"
         ]
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["content.js"],
+            "css": ["godwin.css"]
+        }
+    ]
 }
