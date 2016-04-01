@@ -1,0 +1,11 @@
+{
+    "manifest_version": 2,
+    "name": "Godwin's Law",
+    "description": "Check for mentions of 'Hitler' in current page",
+    "version": "1.0",
+    "icons": {"128": "icon128.png"},
+    "browser_action": {
+        "default_title": "Highlights mentions of Hitler",
+        "default_icon": "icon.png"
+    }
+}
